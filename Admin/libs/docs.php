@@ -125,7 +125,7 @@
 	* $arquivo / tabela que irá verificar
 	*************************************** */
 	function acesso($pdo, $arquivo) {
-		$tipo_id = $_SESSION["submarino"]["tipo_id"];
+		$tipo_id = $_SESSION["cherrymotors"]["tipo_id"];
 
         $sql = "select acesso from acesso where tabela = :arquivo AND 
             tipo_id = :tipo_id limit 1";

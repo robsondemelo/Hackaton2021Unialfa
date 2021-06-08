@@ -1,30 +1,11 @@
 <?php
-    if ( ! isset ( $_SESSION['submarino']['id'] ) ) exit;
+    if ( ! isset ( $_SESSION['cherrymotors']['id'] ) ) exit;
 
-    $usuario_id = ($_SESSION['submarino']['id']);
+    $usuario_id = ($_SESSION['cherrymotors']['id']);
    
     if ( $_POST ) {
 
-    	//print_r( $_POST );
-
-    	//print_r( $_FILES );
-
-    	//recuperar os dados dados
-
-    	/*$id = "igor";
-
-    	echo "<p>O valor de id é $id</p>";
-
-    	$$id = "chimbinha";
-
-    	echo "<p>O valor de igor é $igor $id</p>";
-
-    	$$igor = "joelma";
-
-    	echo "<p>O valor de chimbinha é $chimbinha</p>";*/
-
-
-        include "libs/imagem.php";
+    	include "libs/imagem.php";
 
     	foreach ($_POST as $key => $value) {
     		//echo "<p>{$key} - {$value}</p>";
@@ -73,7 +54,7 @@
             $t = 8 * 1024 * 1024; //byte - kbyte - megabyte
 
             $fotoDestaque = time();
-            $usuario = $_SESSION['submarino']['id'];
+            $usuario = $_SESSION['cherrymotors']['id'];
 
             //definir um nome para a imagem
             $fotoDestaque = "{$modelo}_{$fotoDestaque}_{$usuario}";
@@ -105,7 +86,7 @@
 
         //se vai dar insert ou update
         if ( empty ( $id ) ) {
-            $usuario_id = ($_SESSION['submarino']['id']);
+            $usuario_id = ($_SESSION['cherrymotors']['id']);
             $sql = "insert into veiculo values( NULL, :modelo, :anomodelo, :anofabricacao, :valor, :tipo, :fotoDestaque, :marca_id, :cor_id, :usuario_id, :opcionais )";
             $consulta = $pdo->prepare($sql);
             $consulta->bindParam(':modelo', $modelo);
@@ -120,7 +101,7 @@
             $consulta->bindParam(':opcionais', $opcionais);
 
         } else if ( empty ( $imagem ) ) {
-            $usuario_id = ($_SESSION['submarino']['id']);
+            $usuario_id = ($_SESSION['cherrymotors']['id']);
             $sql = "update veiculo set modelo = :modelo, anomodelo = :anomodelo, anofabricacao = :anofabricacao, valor = :valor, tipo = :tipo, marca_id = :marca_id, cor_id = :cor_id, usuario_id = :usuario_id,  opcionais = :opcionais where id = :id limit 1";
             $consulta = $pdo->prepare($sql);
             $consulta->bindParam(':modelo', $modelo);
@@ -135,7 +116,7 @@
             $consulta->bindParam(':id', $id);
 
         } else {
-            $usuario_id = ($_SESSION['submarino']['id']);
+            $usuario_id = ($_SESSION['cherrymotors']['id']);
             $sql = "update veiculo set modelo = :modelo, anomodelo = :anomodelo, anofabricacao = :anofabricacao, valor = :valor, tipo = :tipo, fotoDestaque = :fotoDestaque, marca_id = :marca_id, cor_id = :cor_id, usuario_id = :usuario_id,  opcionais = :opcionais where id = :id limit 1";
             $consulta = $pdo->prepare($sql);
             $consulta->bindParam(':modelo', $modelo);

@@ -1,5 +1,5 @@
 <?php
-    if ( ! isset ( $_SESSION['submarino']['id'] ) ) exit;
+    if ( ! isset ( $_SESSION['cherrymotors']['id'] ) ) exit;
 
 
     if ( $_POST ) {
@@ -19,7 +19,7 @@
     	}
 
     	//pegar o usuário logado
-		$usuario_id = $_SESSION['submarino']['id'];
+		$usuario_id = $_SESSION['cherrymotors']['id'];
 
     	//inserir ou atualizar
     	if ( empty ( $id ) ) {

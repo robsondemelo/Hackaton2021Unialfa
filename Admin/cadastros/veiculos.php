@@ -1,8 +1,8 @@
 <?php
-    if ( ! isset ( $_SESSION['submarino']['id'] ) ) exit;
+    if ( ! isset ( $_SESSION['cherrymotors']['id'] ) ) exit;
 
     $modelo = $anomodelo = $anofabricacao = $valor = $tipo = $fotoDestaque = $marca_id = $cor_id = $opcionais = NULL;
-    $usuario_id = ($_SESSION['submarino']['id']);
+    $usuario_id = ($_SESSION['cherrymotors']['id']);
 
     //verificando se pegou o id de usuario da sessao
     //echo $usuario_id;

@@ -69,7 +69,7 @@
 <body id="page-top">
     <?php
     //verificar se o usuário está logado
-    if ( !isset ( $_SESSION["submarino"]["id"] ) ) {
+    if ( !isset ( $_SESSION["cherrymotors"]["id"] ) ) {
         //mostrar a tela de login
         include "paginas/login.php";
     } else {
@@ -106,7 +106,7 @@
             $ip = $_SERVER['REMOTE_ADDR'];
             $acao = $pasta; //listar, excluir, cadastros
             $tabela = $arquivo; //categorias, produtos
-            $usuario = $_SESSION["submarino"]["id"]; //id do usuario
+            $usuario = $_SESSION["cherrymotors"]["id"]; //id do usuario
             $tabela_id = $id ?? NULL;
 
 
@@ -139,7 +139,7 @@
         //verificar o acesso aquele arquivo
 
         //pegar o tipo de usuário
-        $tipo_id = $_SESSION["submarino"]["tipo_id"];
+        $tipo_id = $_SESSION["cherrymotors"]["tipo_id"];
 
         $sql = "select acesso from acesso where tabela = :arquivo AND 
             tipo_id = :tipo_id limit 1";

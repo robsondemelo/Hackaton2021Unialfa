@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	if ( ! isset ( $_SESSION['submarino']['id'] ) ) exit;
+	if ( ! isset ( $_SESSION['cherrymotors']['id'] ) ) exit;
 
 	$produto = trim ( $_GET['produto'] ??  NULL );
 

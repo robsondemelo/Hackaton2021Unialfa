@@ -1,5 +1,5 @@
 <?php
-    if ( ! isset ( $_SESSION['submarino']['id'] ) ) exit;
+    if ( ! isset ( $_SESSION['cherrymotors']['id'] ) ) exit;
 ?>
 				</div>
                 <!-- /.container-fluid -->
@@ -11,7 +11,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; SubSub Marino <?=date("Y")?></span>
+                        <span>Copyright &copy; Cherry Motors <?=date("Y")?></span>
                     </div>
                 </div>
             </footer>

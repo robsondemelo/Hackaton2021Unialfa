@@ -44,7 +44,7 @@
 		}
 
 		//abrir uma variavel na sessao e gravar os dados
-		$_SESSION["submarino"] = array("id"=>$dados->id,
+		$_SESSION["cherrymotors"] = array("id"=>$dados->id,
 								"nome"=>$dados->nome,
 								"login"=>$dados->login, 
 								"foto"=>$dados->foto,

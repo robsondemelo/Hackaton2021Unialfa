@@ -1,6 +1,6 @@
 <?php
 	//verificar se está logado
-    if ( ! isset ( $_SESSION['submarino']['id'] ) ) exit;
+    if ( ! isset ( $_SESSION['cherrymotors']['id'] ) ) exit;
 
     //verificar se foi dado um post
     if ( $_POST ) {
@@ -31,7 +31,7 @@
     		}
 
     		//dar um novo nome ao arquivo
-    		$foto = time()."_".$_SESSION["submarino"]["id"];
+    		$foto = time()."_".$_SESSION["cherrymotors"]["id"];
 
     		include "libs/imagem.php";
 

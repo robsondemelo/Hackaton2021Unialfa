@@ -1,5 +1,5 @@
 <?php
-    if ( ! isset ( $_SESSION['submarino']['id'] ) ) exit;
+    if ( ! isset ( $_SESSION['cherrymotors']['id'] ) ) exit;
 
     //verificar se esta sendo enviado um ID
     if ( empty ( $id ) ) {

@@ -1,5 +1,5 @@
 <?php
-    if ( ! isset ( $_SESSION['submarino']['id'] ) ) exit;
+    if ( ! isset ( $_SESSION['cherrymotors']['id'] ) ) exit;
 ?>
 <!-- Page Wrapper -->
     <div id="wrapper">
@@ -10,7 +10,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 	
-                <img src="images/logo.png" alt="Sub Sub Marino">
+                <img src="images/logo.png" alt="Cherry Motors">
 
             </a>
 
@@ -177,10 +177,10 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                	<?=$_SESSION['submarino']['nome']?>
+                                	<?=$_SESSION['cherrymotors']['nome']?>
                                 </span>
                                 <img class="img-profile rounded-circle"
-                                    src="<?="../arquivos/".$_SESSION['submarino']['foto']."p.jpg"?>">
+                                    src="<?="../arquivos/".$_SESSION['cherrymotors']['foto']."p.jpg"?>">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
