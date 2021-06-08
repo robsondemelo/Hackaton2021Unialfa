@@ -20,9 +20,10 @@
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <td width="10%">ID</td>
+                    <td width="7%">ID</td>
                     <td width="20%">Modelo</td>
                     <td width="10%">Marca</td>
+                    <td width="13%">Tipo</td>
                     <td width="10%">Cor</td>
                     <td width="10%">Ano Fabricação</td>
                     <td width="10%">Ano Modelo</td>
@@ -34,7 +35,7 @@
             <tbody>
                 <?php
 
-                    $sql = "select v.id, v.modelo, m.marca, c.cor, v.anofabricacao, v.anomodelo, v.valor, v.fotoDestaque 
+                    $sql = "select v.id, v.modelo, m.marca, v.tipo, c.cor, v.anofabricacao, v.anomodelo, v.valor, v.fotoDestaque 
                         from veiculo v
                         inner join cor c on ( c.id = v.cor_id )
                         inner join marca m on ( m.id = v.marca_id ) 
@@ -54,6 +55,7 @@
                             <td><?=$dados->id?></td>
                             <td><?=$dados->modelo?></td>
                             <td><?=$dados->marca?></td>
+                            <td><?=$dados->tipo?></td>
                             <td><?=$dados->cor?></td>
                             <td><?=$dados->anofabricacao?></td>
                             <td><?=$dados->anomodelo?></td>

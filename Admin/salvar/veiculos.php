@@ -76,7 +76,7 @@
             $usuario = $_SESSION['submarino']['id'];
 
             //definir um nome para a imagem
-            $fotoDestaque = "modelo_{$fotoDestaque}_{$usuario}";
+            $fotoDestaque = "{$modelo}_{$fotoDestaque}_{$usuario}";
 
             //echo "<p>{$imagem}</p>"; exit;
 
