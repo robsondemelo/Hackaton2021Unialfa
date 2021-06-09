@@ -41,28 +41,28 @@
         //print_r ( $_FILES );
 
         //se o id estiver em branco e o imagem tbém - erro
-        if ( ( empty ( $id ) ) and ( empty ( $_FILES['fotoDestaque']['name'] ) ) ) {
+        if ( ( empty ( $id ) ) and ( empty ( $_FILES['fotodestaque']['name'] ) ) ) {
             mensagem("Erro ao enviar imagem", 
                 "Selecione um arquivo JPG válido", 
                 "error");
         } 
 
         //se existir imagem - copia para o servidor
-        if ( !empty ( $_FILES['fotoDestaque']['name'] ) ) {
+        if ( !empty ( $_FILES['fotodestaque']['name'] ) ) {
             //calculo para saber quantos mb tem o arquivo
-            $tamanho = $_FILES['fotoDestaque']['size'];
+            $tamanho = $_FILES['fotodestaque']['size'];
             $t = 8 * 1024 * 1024; //byte - kbyte - megabyte
 
-            $fotoDestaque = time();
+            $fotodestaque = time();
             $usuario = $_SESSION['cherrymotors']['id'];
 
             //definir um nome para a imagem
-            $fotoDestaque = "{$modelo}_{$fotoDestaque}_{$usuario}";
+            $fotodestaque = "{$modelo}_{$fotodestaque}_{$usuario}";
 
             //echo "<p>{$imagem}</p>"; exit;
 
             //validar se é jpg
-            if ( $_FILES['fotoDestaque']['type'] != 'image/jpeg' ) {
+            if ( $_FILES['fotodestaque']['type'] != 'image/jpeg' ) {
                 mensagem("Erro ao enviar imagem", 
                 "O arquivo enviado não é um JPG válido, selecione um arquivo JPG", 
                 "error");
@@ -70,7 +70,7 @@
                 mensagem("Erro ao enviar imagem", 
                 "O arquivo é muito grande e não pode ser enviado. Tente arquivos menores que 8 MB", 
                 "error");
-            } else if ( !copy ( $_FILES['fotoDestaque']['tmp_name'], '../produtos/'.$_FILES['fotoDestaque']['name'] ) ) {
+            } else if ( !copy ( $_FILES['fotodestaque']['tmp_name'], '../produtos/'.$_FILES['fotodestaque']['name'] ) ) {
                 mensagem("Erro ao enviar imagem", 
                 "Não foi possível copiar o arquivo para o servidor", 
                 "error");
@@ -78,8 +78,8 @@
 
             //redimensionar a imagem
             $pastaFotos = '../produtos/';
-            loadImg($pastaFotos.$_FILES['fotoDestaque']['name'], 
-                    $fotoDestaque, 
+            loadImg($pastaFotos.$_FILES['fotodestaque']['name'], 
+                    $fotodestaque, 
                     $pastaFotos);
 
         } //fim da verificação da foto
@@ -87,14 +87,14 @@
         //se vai dar insert ou update
         if ( empty ( $id ) ) {
             $usuario_id = ($_SESSION['cherrymotors']['id']);
-            $sql = "insert into veiculo values( NULL, :modelo, :anomodelo, :anofabricacao, :valor, :tipo, :fotoDestaque, :marca_id, :cor_id, :usuario_id, :opcionais )";
+            $sql = "insert into veiculo values( NULL, :modelo, :anomodelo, :anofabricacao, :valor, :tipo, :fotodestaque, :marca_id, :cor_id, :usuario_id, :opcionais )";
             $consulta = $pdo->prepare($sql);
             $consulta->bindParam(':modelo', $modelo);
             $consulta->bindParam(':anomodelo', $anomodelo);
             $consulta->bindParam(':anofabricacao', $anofabricacao);
             $consulta->bindParam(':valor', $valor);
             $consulta->bindParam(':tipo', $tipo);
-            $consulta->bindParam(':fotoDestaque', $fotoDestaque);
+            $consulta->bindParam(':fotodestaque', $fotodestaque);
             $consulta->bindParam(':marca_id', $marca_id);
             $consulta->bindParam(':cor_id', $cor_id);
             $consulta->bindParam(':usuario_id', $usuario_id);
@@ -117,14 +117,14 @@
 
         } else {
             $usuario_id = ($_SESSION['cherrymotors']['id']);
-            $sql = "update veiculo set modelo = :modelo, anomodelo = :anomodelo, anofabricacao = :anofabricacao, valor = :valor, tipo = :tipo, fotoDestaque = :fotoDestaque, marca_id = :marca_id, cor_id = :cor_id, usuario_id = :usuario_id,  opcionais = :opcionais where id = :id limit 1";
+            $sql = "update veiculo set modelo = :modelo, anomodelo = :anomodelo, anofabricacao = :anofabricacao, valor = :valor, tipo = :tipo, fotodestaque = :fotodestaque, marca_id = :marca_id, cor_id = :cor_id, usuario_id = :usuario_id,  opcionais = :opcionais where id = :id limit 1";
             $consulta = $pdo->prepare($sql);
             $consulta->bindParam(':modelo', $modelo);
             $consulta->bindParam(':anomodelo', $anomodelo);
             $consulta->bindParam(':anofabricacao', $anofabricacao);
             $consulta->bindParam(':valor', $valor);
             $consulta->bindParam(':tipo', $tipo);
-            $consulta->bindParam(':fotoDestaque', $fotoDestaque);
+            $consulta->bindParam(':fotodestaque', $fotodestaque);
             $consulta->bindParam(':marca_id', $marca_id);
             $consulta->bindParam(':cor_id', $cor_id);
             $consulta->bindParam(':usuario_id', $usuario_id);

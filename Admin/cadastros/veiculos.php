@@ -1,7 +1,7 @@
 <?php
     if ( ! isset ( $_SESSION['cherrymotors']['id'] ) ) exit;
 
-    $modelo = $anomodelo = $anofabricacao = $valor = $tipo = $fotoDestaque = $marca_id = $cor_id = $opcionais = NULL;
+    $modelo = $anomodelo = $anofabricacao = $valor = $tipo = $fotodestaque = $marca_id = $cor_id = $opcionais = NULL;
     $usuario_id = ($_SESSION['cherrymotors']['id']);
 
     //verificando se pegou o id de usuario da sessao
@@ -28,7 +28,7 @@
         $anofabricacao = $dados->anofabricacao;
         $valor = formatarValorBR($dados->valor);
         $tipo = $dados->tipo;
-        $fotoDestaque = $dados->fotoDestaque;
+        $fotodestaque = $dados->fotodestaque;
         $marca_id = $dados->marca_id;
         $cor_id = $dados->cor_id;
         $opcionais = $dados->opcionais;
@@ -90,9 +90,9 @@
 						$link = NULL;
 
 						//verificar se a imagem não esta em branco
-						if ( !empty ( $fotoDestaque ) ) {
+						if ( !empty ( $fotodestaque ) ) {
 							//caminho para a imagem
-							$img = "../produtos/{$fotoDestaque}m.jpg";
+							$img = "../produtos/{$fotodestaque}m.jpg";
 							//criar um link para abrir a imagem
 							$link = "<a href='{$img}' data-lightbox='foto' class='badge badge-success'>Abrir imagem</a>";
 							$required = NULL;
@@ -100,9 +100,9 @@
 						}
 
 					?>
-					<label for="fotoDestaque">Imagem (JPG)* <?=$link?>:</label>
-					<input type="file" name="fotoDestaque" 
-					id="fotoDestaque" class="form-control"
+					<label for="fotodestaque">Imagem (JPG)* <?=$link?>:</label>
+					<input type="file" name="fotodestaque" 
+					id="fotodestaque" class="form-control"
 					<?=$required?> accept="image/jpeg">
 				</div>
 				<div class="col-12 col-md-4">

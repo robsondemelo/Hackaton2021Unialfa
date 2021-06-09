@@ -35,7 +35,7 @@
             <tbody>
                 <?php
 
-                    $sql = "select v.id, v.modelo, m.marca, v.tipo, c.cor, v.anofabricacao, v.anomodelo, v.valor, v.fotoDestaque 
+                    $sql = "select v.id, v.modelo, m.marca, v.tipo, c.cor, v.anofabricacao, v.anomodelo, v.valor, v.fotodestaque 
                         from veiculo v
                         inner join cor c on ( c.id = v.cor_id )
                         inner join marca m on ( m.id = v.marca_id ) 
@@ -47,8 +47,8 @@
 
                         $valor  = number_format( $dados->valor,2, ',' , '.' );
                         
-                        $imagem = "../produtos/{$dados->fotoDestaque}p.jpg"; 
-                        $imagemg = "../produtos/{$dados->fotoDestaque}g.jpg";
+                        $imagem = "../produtos/{$dados->fotodestaque}p.jpg"; 
+                        $imagemg = "../produtos/{$dados->fotodestaque}g.jpg";
 
                         ?>
                         <tr>
@@ -61,7 +61,7 @@
                             <td><?=$dados->anomodelo?></td>
                             <td><?=$valor?></td>
                             <td>
-                                <a href="<?=$imagemg?>" data-lightbox="foto" title="<?=$dados->fotoDestaque?>">
+                                <a href="<?=$imagemg?>" data-lightbox="foto" title="<?=$dados->fotodestaque?>">
                                     <img src="<?=$imagem?>" alt="<?=$dados->modelo?>" width="100px">
                                 </a>
                             </td>

@@ -63,7 +63,7 @@
                     <label for="tipo_id">Tipo:</label>
 
                     <?php 
-                    if ( $_SESSION["submarino"]["tipo_id"] == 1 ) {
+                    if ( $_SESSION["cherrymotors"]["tipo_id"] == 1 ) {
                     ?>
 
                     <select name="tipo_id" id="tipo_id" required data-parsley-required-message="Selecione um tipo" class="form-control">
