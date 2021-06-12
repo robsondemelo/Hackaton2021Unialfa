@@ -1,0 +1,128 @@
+<!-- component  Header -->
+
+<head th:fragment="header">
+	 <link
+	 href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+	 rel="stylesheet"
+	 integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+	 crossorigin="anonymous">
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	
+	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+	 integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+	 crossorigin="anonymous">
+     </script>
+      <link rel="stylesheet" th:href="@{/css/style.css}">	
+	 
+	 <meta charset="utf-8">
+	 <title>Concessionaria</title>
+</head>
+
+
+
+
+<!-- Component navbar -->
+
+<nav th:fragment="nav-bar" class="navbar navbar-expand-lg navbar-dark" id="nav" >
+ <div>	
+	<a class="navbar-brand" href="/">
+		<img src="/assets/logo2.jpg" alt="logo" height="150px">
+	</a>
+ </div>	
+	<div class="colapse navbar-colapse">
+		<ul class="nav justify-content-end">
+			<li class="nav-item">
+				<a class="nav-link h6" href="/sobre">Sobre a empresa</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link h6" href="/main/novo" >Novos</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link h6" href="/main/seminovo">Seminovos</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+
+
+
+<!-- Component Card de apresentação de veiculos -->
+
+<div th:fragment="card" class="card col-12 col-md-4 text container" id="card" th:each="v : ${listVeiculos}">
+	<img class="card-img-top w-100" th:attr="src=@{/images/}+${v.fotodestaque}+m.jpg, alt=${v.modelo}, title=${v.modelo}">
+	<div class="card-body">
+		<h4 class="card-title" th:text="${v.modelo}"></h4>
+		<h3 class="card-text" th:text="${#numbers.formatCurrency(v.valor)}"></h3>
+		<div class="clearfix">
+			<p class="card-text float-start text-muted" th:text="${v.anofabricacao}"></p>
+			<p class="card-text float-end text-muted" th:text="${v.tipo}"></p>
+		</div>
+		<a th:href="@{/obj/(id=${v.id})}" class="btn btn-success btn-lg w-100">Detalhes</a>
+	</div>
+</div>
+
+
+
+<!-- Component footer -->
+
+<div th:fragment="footer" id="footer">
+	<div class="copy">
+	    Hackaton Unialfa&copy
+	</div>
+	<div class="git">
+		
+			 <a href="https://github.com/robsondemelo" target="__blank" class="social-link">
+	          <img alt="git" src="assets/github.jpg"> 
+	         </a>
+	          Robson
+		
+		
+			<a href="https://github.com/dumota" target="__blank" class="social-link">
+	           <img alt="git" src="assets/github.jpg">
+	        </a>
+	        Mota
+		
+	</div>
+</div>
+
+
+
+
+<!-- Component sobre -->
+
+<div th:fragment="sobre">
+	<h1>Sobre</h1>
+	<div>
+		<img alt="sobre" src="/assets/logoSobre.jpg">	
+	</div>
+	<p class="text-center"  style=text-align:right>A Concesionaria cherry é uma fabricante de automóveis multinacional estadunidense sediada em Dearborn, Michigan, um subúrbio de Detroit e agora em Umuarama.
+	 Foi fundada por Henry Ford e incorporada em 16 de junho de 1903. A companhia vende carros e veículos comerciais sob a marca de Ford e inumeras outras marcas a maioria de seus carros de luxo sob a marca Lincoln tambem trabalham com seminovos.
+	  Cherry também possui o fabricante brasileiro de jipes e fora de estrada Troller, o fabricante de carros australiano FPV e a fabricante brasileira de caminhões Ford Caminhões.
+	   No passado, também produziu tratores e componentes automotivos. A Ford detém uma participação de 2,1% na Mazda do Japão, uma participação de 8% na Aston Martin do Reino Unido e uma participação de 49% na Jiangling da China.
+	    Também tem uma série de joint-ventures, sendo uma na China (Changan Ford), Taiwan (Ford Lio Ho), Tailândia (AutoAlliance Tailândia), Turquia (Ford Otosan) e Rússia (Ford Sollers).
+	     É listada na Bolsa de Valores de Nova York e é controlado pela família Ford, embora eles tenham propriedade minoritária (mas a maioria do poder de voto).</p>
+</div>
+
+
+
+
+
+<!-- Component detalhes -->
+
+<div th:fragment="detalhes" class="row text-center" id="detalhes">
+	<div class="col-12 col-md-8">
+			<img th:attr="src=@{/images/}+${obj.fotodestaque}+g.jpg, alt=${obj.modelo}, title=${obj.modelo}" class="w-100">
+	</div>
+	<div class="col-12 col-md-4 bord">
+		<h2>Detalhes</h2>
+		<p th:text="'Ano de Fabricação: ' + ${obj.anofabricacao}"></p>
+		<p th:text="'Ano do Modelo: '+${obj.anomodelo}"></p>
+		<p th:text="'Cor: ' +${obj.cor.cor}"></p>
+		<p th:text="'Valor: ' + ${#numbers.formatCurrency(obj.valor)}"></p>
+		<h2 class="text-center">Descrição</h2>
+		<p th:text="${obj.opcionais}"><p>
+	</div>
+</div>

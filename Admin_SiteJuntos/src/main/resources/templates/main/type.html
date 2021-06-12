@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{component :: header}"></head>
+<body>
+	<nav th:replace="~{component :: nav-bar}"></nav>
+	<main class="container-fluid">
+		<h2 th:text="'Carros ' + ( (${tipo} == 'novo')? 'Novos' : 'Seminovos')"></h2>
+		<div class="row">
+			<div th:replace="~{component :: card}"></div>
+		</div>
+	</main>
+	<div th:replace="~{component ::  footer}"></div>
+</body>
+</html>
