@@ -24,7 +24,11 @@
 #nav{
 	justify-content: space-between;
 	background-color:#000000;
+	padding:5px 10px 5px 10px;
 
+}
+#nav p{
+	color:#000000;
 }
 #nav div ul li a{
 	color:white;

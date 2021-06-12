@@ -11,15 +11,19 @@ import com.concessionaria.models.Veiculo;
 
 public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
 	
-	List<Veiculo> findByTipo(String tipo);
 	
 	
 	
 	@Query(nativeQuery = true, value ="SELECT * FROM Veiculo order by rand() limit :limit")
 	 List<Veiculo> encontrar(@Param("limit") int limit);
 	
-
+	@Query(nativeQuery = true, value ="SELECT * FROM Veiculo where cor_id = :id")
+	 List<Veiculo> porCor(@Param("id") Long id);
 	
+	@Query(nativeQuery = true, value ="SELECT * FROM Veiculo where tipo = :tipo")
+	 List<Veiculo> porTipo(@Param("tipo") String tipo);
 
-	
+	@Query(nativeQuery = true, value ="SELECT * FROM Veiculo where marca_id = :id")
+	 List<Veiculo> porMarca(@Param("id") Long id);
+
 }
